@@ -1,7 +1,11 @@
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(400, 400);
 }
 
 function draw() {
-ellipse (100,100,100,100);
+  print ("hello world");
+ // text ("hello world");
+
+  background(255,10,10);
+  ellipse(200,200, 300,300) ;
 }
