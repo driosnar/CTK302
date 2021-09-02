@@ -1,5 +1,6 @@
 var f1;
 var f2;
+var f3;
 
 
 function setup() {
@@ -7,17 +8,23 @@ function setup() {
 
   f1 = loadFont("assets/BetterGrade.ttf");
   f2 = loadFont("assets/MetalLady.otf");
+  textAlign (CENTER);
 }
 
 function draw() {
   background('red');
   textFont(f1);
-  textSize(90);
-  text("hello world", 100, 100);
+  textSize(48);
+  text("hello world",width/2, 100);
 
 
   textFont(f2);
-  
-  text("hello world", 100, 150);
+  textSize(24);
+
+  text("Metal Lady Font", width/2, 150);
+
+  textFont(f3);
+  textSize(24);
+  text ("Zombie rebon font", width/2, 200)
 
 }
