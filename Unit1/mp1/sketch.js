@@ -27,6 +27,8 @@ ellipse(100,100,100,100);
   fill(0);
   text(mouseX + ", " + mouseY, 40, 40);
 
+  text("story \n and \"stories\"", 10,10);
+
 }
 
 
