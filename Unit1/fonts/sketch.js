@@ -8,6 +8,7 @@ function setup() {
 
   f1 = loadFont("assets/BetterGrade.ttf");
   f2 = loadFont("assets/MetalLady.otf");
+  f3 = loadFont("assets/zombie.ttf");
   textAlign (CENTER);
 }
 
@@ -19,12 +20,12 @@ function draw() {
 
 
   textFont(f2);
-  textSize(24);
+  textSize(48);
 
   text("Metal Lady Font", width/2, 150);
 
   textFont(f3);
-  textSize(24);
-  text ("Zombie rebon font", width/2, 200)
+  textSize(48);
+  text ("Zombie reborn font", width/2, 200);
 
 }
