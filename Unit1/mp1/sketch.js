@@ -70,7 +70,7 @@ function draw() {
     quad(397, 410, 376, 305, 248, 410, 315, 480);
     quad(333, 455, 353, 473, 382, 444, 363, 415);
 
-      text("\"Pl-please... You don't have to do this!\" \n The shadowy man did not think of anything.  The city fell quite listening to the man's wheeps and it felt like its holding \n it breath witnessing the horror \n \n \"there are no more heros anymore\" the shadowy man said.  His voice had no emotion, it sounded dead \n  \"only butchers under the facade\"   \n \n \"You Either Die A Hero, Or You Live Long Enough To See Yourself Become The Villain\"" , 42.5, 80);
+    text("\"Pl-please... You don't have to do this!\" \n The shadowy man did not think of anything.  The city fell quite listening to the man's wheeps and it felt like its holding \n it breath witnessing the horror \n \n \"there are no more heros anymore\" the shadowy man said.  His voice had no emotion, it sounded dead \n  \"only butchers under the facade\"   \n \n \"You Either Die A Hero, Or You Live Long Enough To See Yourself Become The Villain\"", 42.5, 80);
     // image(shot3 , width/2, height/2, 1000 ,800);
     image(shot3, width / 2, height / 2, 1000, 800);
   } else {
@@ -81,7 +81,7 @@ function draw() {
     fill('black');
     quad(60, 30, 950, 30, 950, 730, 60, 730);
 
-    fill(63,63,69);
+    fill(63, 63, 69);
     quad(65, 35, 945, 35, 945, 725, 65, 725);
 
     fill(40, 38, 38);
@@ -94,13 +94,13 @@ function draw() {
     fill(47, 50, 93);
     quad(640, 35, 945, 35, 945, 325, 640, 325);
 
-    fill(48,29,73);
+    fill(48, 29, 73);
     quad(640, 35, 700, 35, 700, 325, 640, 325);
-    fill(36,12,65);
+    fill(36, 12, 65);
     quad(740, 90, 860, 90, 860, 325, 740, 325);
-    fill(48,29,73);
+    fill(48, 29, 73);
     quad(815, 170, 930, 170, 930, 325, 815, 325);
-    fill(12,14,65);
+    fill(12, 14, 65);
     quad(930, 120, 945, 120, 945, 325, 930, 325);
 
     //head
@@ -139,13 +139,13 @@ function draw() {
     quad(874, 159, 894, 168, 895, 289, 854, 264);
     quad(877, 486, 916, 484, 918, 496, 880, 498);
 
-      text("A poor man ran away from a shadow. He ran up the roof and fell over looking behind him. \n and \He crawled on the ground trying to get away from the figure.  The shadow watched quitely\ \n and began to lift something from its arm", 70, 50);
+    text("A poor man ran away from a shadow. He ran up the roof and fell over looking behind him. \n and \He crawled on the ground trying to get away from the figure.  The shadow watched quitely\ \n and began to lift something from its arm", 70, 50);
     image(body1, width / 2, height / 2, 1000, 800);
   }
 
   // this shows mouse location - comment it out when you're done!
   fill(0);
-//  text(mouseX + ", " + mouseY, 40, 40);
+  //  text(mouseX + ", " + mouseY, 40, 40);
   // text("A poor man ran away from a shadow. He ran up the roof and fell over looking behind him. \n and \He crawled on the ground trying to get away from the figure.  The shadow watched quitely\ \n and began to lift something from its arm\"", 70, 50);
 
 }
