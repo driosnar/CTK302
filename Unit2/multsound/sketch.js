@@ -20,11 +20,22 @@ function setup() {
   createCanvas(500, 500);
 }
 
+// function mouseReleased() {
+//   print('hello');
+//   song1.play();
+//   song2.pause();
+//
+//   if(song1.isPlaying()){
+//     song1.pause();
+//     song2.play();
+//   }
+//}
+
 function draw() {
 
   switch (state) {
     case 0:
-    background('red');
+      background('red');
       song1.play();
       state = 1;
       break;
@@ -56,6 +67,9 @@ function draw() {
 }
 
 function mouseReleased() {
+  song1.pause();
+  song2.pause();
+  song3.pause();
   state++;
 
   if (state > 6) {
