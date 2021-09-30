@@ -9,7 +9,7 @@ let sheet;
 
 function setup() {
   createCanvas(400, 400);
-  image
+
 
   // code for initializing mic in.
   mic = new p5.AudioIn(); // what does "new" mean?
