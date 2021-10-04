@@ -1,4 +1,4 @@
-let numberOfTouches ;
+let numberOfTouches;
 
 function setup() {
   createCanvas(400, 400);
@@ -9,44 +9,44 @@ function draw() {
   numberOfTouches = touches.length;
   text(numberOfTouches + ' touches', 5, 10);
 
-  switch(numberOfTouches) {
+  switch (numberOfTouches) {
     case 0:
-    background('white');
-      text("no one is touching the screen", 5, 22) ;
+      background('white');
+      text("no one is touching the screen", 5, 22);
 
-      break ;
+      break;
 
-      case 1:
+    case 1:
       background('yellow');
 
-       text("it's kind of lonely here", 5, 22) ;
+      text("it's kind of lonely here", 5, 22);
 
       // put a picture here
-      break ;
+      break;
 
-      case 2:
+    case 2:
       background('red');
 
-      text("two fingers are touching the screen", 5, 22) ;
-            // put a picture here
-      break ;
+      text("two fingers are touching the screen", 5, 22);
+      // put a picture here
+      break;
 
-      case 3:
+    case 3:
       background('green');
 
-     text("three are touching the screen", 5, 22) ;
-            // put a picture here
-break;
+      text("three are touching the screen", 5, 22);
+      // put a picture here
+      break;
 
-            case 4:
-            background('blue');
-      break ;
+    case 4:
+      background('blue');
+      break;
 
-      case 5:
+    case 5:
       background('purple');
       break
 
-      case 6:
+    case 6:
       background('black');
       break;
 
