@@ -10,6 +10,7 @@ let vel = 0
 let chara1;
 let chara2;
 let chara3;
+let chara4;
 let colorback;
 let dj;
 let speakers;
@@ -17,6 +18,11 @@ let background;
 let visor;
 let special;
 let visorless;
+let crowd;
+let sun;
+let table;
+let rd;
+let blu;
 
 function preload() {
   song1 = loadSound("assets/samplebeat.mp3");
@@ -37,6 +43,7 @@ function setup() {
   chara1 = loadImage("assets/chara1.png");
   chara2 = loadImage("assets/chara2.png");
   chara3 = loadImage("assets/chara3.png");
+  chara4 = loadImage("assets/chara4.png");
   colorback = loadImage("assets/colorback.png");
   dj = loadImage("assets/DJ.png");
   speakers = loadImage("assets/speakers.png");
@@ -45,6 +52,12 @@ function setup() {
   visor = loadImage("assets/visor.png");
   special = loadImage("assets/special.png");
   visorless = loadImage("assets/visorless.png");
+
+  crowd = loadImage("assets/crowd.png");
+  sun = loadImage("assets/sun.png");
+  table = loadImage("assets/table.png");
+  rd = loadImage("assets/red.png");
+  blu = loadImage("assets/blue.png");
 
 }
 
@@ -76,6 +89,8 @@ function draw() {
 
 
       image(special, width / 2, height / 2)
+
+
       image(speakers, width / 2, height / 2);
       //image(chara1, width / 2, height / 2);
       image(visorless, width / 2, height / 2);
@@ -141,7 +156,15 @@ function draw() {
         case 7:
           //background("red");
 
-          image(m1, width / 2, height / 2);
+          //image(m1, width / 2, height / 2);
+image(rd, width/2,height/2);
+image(blu, width/2, height/ 2);
+image(sun, width / 2, height / 2);
+image(crowd, width / 2, height / 2);
+image(table, width / 2, height / 2);
+image(chara4, width / 2, height / 2);
+
+
         textSize(75);
         fill('red');
         text("THIS IS THE END OF THE PROJECT ART \n BUT IT IS NOT DONE", width / 2, height / 2, 600, 600);
