@@ -23,6 +23,8 @@ let sun;
 let table;
 let rd;
 let blu;
+let analyzer;
+
 
 function preload() {
   song1 = loadSound("assets/samplebeat.mp3");
@@ -59,6 +61,9 @@ function setup() {
   rd = loadImage("assets/red.png");
   blu = loadImage("assets/blue.png");
 
+  analyzer = new p5.Amplitude();
+  analyzer.setInput(song1);
+
 
 }
 
@@ -80,17 +85,21 @@ function draw() {
       //button
       //image(m1, width / 2, height / 2);
 
+      let rms = analyzer.getLevel();
+      fill(127);
+      stroke(0);
 
       //image(colorback, width / 2, height / 2);
       //image(backgrn, width / 2, height / 2);
       image(visor, width / 2, height / 2);
 
       fill(183, 14, 231);
-      text("Press the button", x, height / 2 - 440, 100);
+      text("Press the button", x + 700, height / 2 - 440, 100);
 
+      //tint (255, 0);
 
       image(special, width / 2, height / 2)
-
+      square(width / 2, height / 2, 400 + rms * 200);
 
       image(speakers, width / 2, height / 2);
       //image(chara1, width / 2, height / 2);
@@ -107,12 +116,18 @@ function draw() {
       textSize(60);
       text("When's the \n concert?", width / 2, height / 2 + 400, 600, 600);
 
+
       vel = 3;
       x = x + vel;
       if (x > width) {
         x = 650;
       }
+
+
+
       break;
+
+
 
     case 2:
 
@@ -163,7 +178,7 @@ function draw() {
 
       //tint(255,127);
 
-      image(sun, width / 2, x+800);
+      image(sun, width / 2, x + 800);
 
       image(crowd, width / 2, height / 2);
       image(table, width / 2, height / 2);
@@ -180,7 +195,7 @@ function draw() {
 
       textSize(75);
       fill('red');
-      text("THIS IS THE END OF THE PROJECT ART \n BUT IT IS NOT DONE", width / 2, height / 2, 600, 600);
+      //text("THIS IS THE END OF THE PROJECT ART \n BUT IT IS NOT DONE", width / 2, height / 2, 600, 600);
       break;
 
   }
