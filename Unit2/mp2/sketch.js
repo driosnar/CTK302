@@ -59,6 +59,7 @@ function setup() {
   rd = loadImage("assets/red.png");
   blu = loadImage("assets/blue.png");
 
+
 }
 
 function draw() {
@@ -84,8 +85,8 @@ function draw() {
       //image(backgrn, width / 2, height / 2);
       image(visor, width / 2, height / 2);
 
-      fill(183,14,231);
-      text("Press the button", x, height / 2 -440, 100);
+      fill(183, 14, 231);
+      text("Press the button", x, height / 2 - 440, 100);
 
 
       image(special, width / 2, height / 2)
@@ -111,90 +112,102 @@ function draw() {
       if (x > width) {
         x = 650;
       }
-        break;
+      break;
 
-        case 2:
+    case 2:
 
-          //song 2 play
-          state = 3
-        break;
+      //song 2 play
+      state = 3
+      break;
 
-        case 3:
-          //image(m2, width / 2, height / 2);
+    case 3:
+      //image(m2, width / 2, height / 2);
 
-          //image(colorback, width / 2, height / 2);
-          image(backgrn, width / 2, height / 2);
+      //image(colorback, width / 2, height / 2);
+      image(backgrn, width / 2, height / 2);
 
-        image(speakers, width / 2, height / 2);
-        image(chara2, width / 2, height / 2);
-        image(dj, width / 2, height / 2);
+      image(speakers, width / 2, height / 2);
+      image(chara2, width / 2, height / 2);
+      image(dj, width / 2, height / 2);
 
-        break;
+      break;
 
-        case 4:
-          //song 3
-          state = 4
-        break;
+    case 4:
+      //song 3
+      state = 4
+      break;
 
-        case 5:
-          //image(m3, width / 2, height / 2);
+    case 5:
+      //image(m3, width / 2, height / 2);
 
-          //image(colorback, width / 2, height / 2);
-          image(backgrn, width / 2, height / 2);
-        image(speakers, width / 2, height / 2);
-        image(dj, width / 2, height / 2);
-        image(chara3, width / 2, height / 2);
+      //image(colorback, width / 2, height / 2);
+      image(backgrn, width / 2, height / 2);
+      image(speakers, width / 2, height / 2);
+      image(dj, width / 2, height / 2);
+      image(chara3, width / 2, height / 2);
 
-        break;
+      break;
 
-        case 6:
-          //song 4?
-          state = 7;
-        break;
-
-
-        case 7:
-          //background("red");
-
-          //image(m1, width / 2, height / 2);
-image(rd, width/2,height/2);
-image(blu, width/2, height/ 2);
-image(sun, width / 2, height / 2);
-image(crowd, width / 2, height / 2);
-image(table, width / 2, height / 2);
-image(chara4, width / 2, height / 2);
+    case 6:
+      //song 4?
+      state = 7;
+      break;
 
 
-        textSize(75);
-        fill('red');
-        text("THIS IS THE END OF THE PROJECT ART \n BUT IT IS NOT DONE", width / 2, height / 2, 600, 600);
-        break;
+    case 7:
+      //background("red");
 
+      //image(m1, width / 2, height / 2);
+      image(rd, width / 2, height / 2);
+      image(blu, width / 2, height / 2);
+
+      //tint(255,127);
+
+      image(sun, width / 2, x+800);
+
+      image(crowd, width / 2, height / 2);
+      image(table, width / 2, height / 2);
+      image(chara4, width / 2, height / 2);
+
+
+
+      vel = 1;
+      x = x + vel;
+      if (x > height) {
+        x = 1;
       }
-      // textSize(100);
-      // fill('purple');
-      // text(mouseX + "," + mouseY, 10, 1700);
 
 
-
+      textSize(75);
+      fill('red');
+      text("THIS IS THE END OF THE PROJECT ART \n BUT IT IS NOT DONE", width / 2, height / 2, 600, 600);
+      break;
 
   }
+  // textSize(100);
+  // fill('purple');
+  // text(mouseX + "," + mouseY, 10, 1700);
 
-  function mouseReleased() {
-    // if((mouseX>100)&&(mouseX <200) && (mouseY>100)&&(mouseY<200))
-    // {
-    song1.pause();
-    //song 2
-    //song 3
-    if (state == 1) {
-      if ((mouseX > 900) && (mouseX < 1250) && (mouseY > 1300) && (mouseY < 1600)) {
-        state = 2;
-      }
-    } else {
-      state++;
+
+
+
+}
+
+function mouseReleased() {
+  // if((mouseX>100)&&(mouseX <200) && (mouseY>100)&&(mouseY<200))
+  // {
+  song1.pause();
+  //song 2
+  //song 3
+  if (state == 1) {
+    if ((mouseX > 900) && (mouseX < 1250) && (mouseY > 1300) && (mouseY < 1600)) {
+      state = 2;
     }
-
-    if (state > 8)
-      state = 0;
+  } else {
+    state++;
   }
-  // }
+
+  if (state > 8)
+    state = 0;
+}
+// }
