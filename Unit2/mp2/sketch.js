@@ -24,19 +24,30 @@ let table;
 let rd;
 let blu;
 let analyzer;
-
+let music;
+let buildup;
 
 function preload() {
   song1 = loadSound("assets/samplebeat.mp3");
+  buildup = loadSound("assets/djsound.mp4");
+  music = loadSound("assets/djmusic.mp4");
 
   song1.play();
+  buildup.play();
+  music.play();
+
+
+
   song1.pause();
+  buildup.pause();
+  music.pause();
 }
 
 
 function setup() {
   createCanvas(1800, 1800);
   imageMode(CENTER);
+  ellipseMode(CENTER);
   m1 = loadImage("assets/m1.png");
   m2 = loadImage("assets/m2.png");
   m3 = loadImage("assets/m3.png");
@@ -62,7 +73,8 @@ function setup() {
   blu = loadImage("assets/blue.png");
 
   analyzer = new p5.Amplitude();
-  analyzer.setInput(song1);
+  //analyzer.setInput(song1);
+  analyzer.setInput(buildup);
 
 
 }
@@ -85,9 +97,9 @@ function draw() {
       //button
       //image(m1, width / 2, height / 2);
 
-      let rms = analyzer.getLevel();
-      fill(127);
-      stroke(0);
+      // let rms = analyzer.getLevel();
+      // fill(127);
+      // stroke(0);
 
       //image(colorback, width / 2, height / 2);
       //image(backgrn, width / 2, height / 2);
@@ -99,7 +111,7 @@ function draw() {
       //tint (255, 0);
 
       image(special, width / 2, height / 2)
-      square(width / 2, height / 2, 400 + rms * 200);
+    //  square(width / 2, height / 2, 400 + rms * 200);
 
       image(speakers, width / 2, height / 2);
       //image(chara1, width / 2, height / 2);
@@ -132,16 +144,29 @@ function draw() {
     case 2:
 
       //song 2 play
+      buildup.play();
       state = 3
       break;
 
     case 3:
+    let rms = analyzer.getLevel();
+    fill(104,107,132);
+    stroke(0);
+
       //image(m2, width / 2, height / 2);
 
       //image(colorback, width / 2, height / 2);
       image(backgrn, width / 2, height / 2);
 
+
+
       image(speakers, width / 2, height / 2);
+//tint(255,130);
+      ellipse(186,700, 200 + rms * 250);
+      ellipse(186,1333, 200 + rms * 250);
+      ellipse(1616,700, 200 + rms * 250);
+      ellipse(1616,1333, 200 + rms * 250);
+
       image(chara2, width / 2, height / 2);
       image(dj, width / 2, height / 2);
 
@@ -149,6 +174,7 @@ function draw() {
 
     case 4:
       //song 3
+      music.play();
       state = 4
       break;
 
@@ -212,6 +238,8 @@ function mouseReleased() {
   // if((mouseX>100)&&(mouseX <200) && (mouseY>100)&&(mouseY<200))
   // {
   song1.pause();
+  buildup.pause();
+  music.pause();
   //song 2
   //song 3
   if (state == 1) {
@@ -222,7 +250,8 @@ function mouseReleased() {
     state++;
   }
 
-  if (state > 8)
+  if (state > 8){
     state = 0;
+  }
 }
 // }
