@@ -47,6 +47,7 @@ function preload() {
 
 function setup() {
   createCanvas(1800, 1800);
+  song.loop();
   imageMode(CENTER);
   ellipseMode(CENTER);
   m1 = loadImage("assets/m1.png");

@@ -1,5 +1,10 @@
 let song1, song2, song3;
 let state = 0;
+let doggo;
+let jackson;
+let guitar;
+let green;
+let rms;
 
 function preload() {
 
@@ -18,6 +23,19 @@ function preload() {
 
 function setup() {
   createCanvas(500, 500);
+
+  jackson = loadImage("assets/jackson.png");
+  doggo = loadImage("assets/doggo.png");
+  green = loadImage("assets/green.png");
+  guitar =loadImage("assets/guitar.png");
+
+
+  analyzer = new p5.Amplitude();
+  //analyzer.setInput(song1);
+  analyzer.setInput(song1);
+//  analyzer.setInput(song2);
+  //analyzer.setInput(song3);
+
 }
 
 // function mouseReleased() {
@@ -35,30 +53,62 @@ function draw() {
 
   switch (state) {
     case 0:
+
       background('red');
+
+
       song1.play();
+
+
+      //image(jackson, 50,50, 200 + rms * 100,200 + rms * 100);
+      //ellipse(100,100, 100 + rms* 100);
+
+
       state = 1;
       break;
 
     case 1:
+    rms = analyzer.getLevel();
+
+    image(jackson, 50,50, 200 + rms * 300,);
+
       break;
 
     case 2:
-      song2.play();
+
       background('blue');
+
+
+      song2.play();
+
       state = 3;
       break;
 
     case 3:
+    rms = analyzer.getLevel();
+
+    image(guitar, 50,50, 200+ rms * 300);
+
       break;
 
     case 4:
+
+      background('white');
+
+
+
+
+
       song3.play();
-      background('purple');
+
       state = 5;
       break;
 
     case 5:
+    rms = analyzer.getLevel();
+
+    image(doggo, 50,50, 100 + rms * 100,);
+    image(green, 50,150, 100 + rms * 100);
       break;
 
 
