@@ -87,6 +87,8 @@ function draw() {
     case 3:
     rms = analyzer.getLevel();
 
+//  image(jackson, 50,50, 200 + rms * 300,);
+
     image(guitar, 50,50, 200+ rms * 300);
 
       break;
@@ -105,10 +107,10 @@ function draw() {
       break;
 
     case 5:
-    rms = analyzer.getLevel();
 
-    image(doggo, 50,50, 100 + rms * 100,);
-    image(green, 50,150, 100 + rms * 100);
+
+    image(doggo, 50,50, 100 + rms * 100,100 + rms * 100);
+    image(green, 200,50, 100 + rms * 100,100 + rms * 100);
       break;
 
 
