@@ -112,7 +112,7 @@ function draw() {
 
       //tint (255, 0);
 
-      image(special, width / 2, height / 2)
+      image(special, width / 2, height / 2);
       //  square(width / 2, height / 2, 400 + rms * 200);
 
       image(speakers, width / 2, height / 2);

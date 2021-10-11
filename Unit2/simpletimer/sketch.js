@@ -6,7 +6,7 @@ function setup() {
 
 function draw() {
   background(220);
-  text("beep will show up in console");
+  text("beep will show up in console", width/ 2, height/2);
 
 
   //use the command "milli"? for accuracy?  not too sure what this is.
