@@ -26,6 +26,7 @@ let blu;
 let analyzer;
 let music;
 let buildup;
+let rms;
 
 function preload() {
   song1 = loadSound("assets/samplebeat.mp3");
@@ -111,7 +112,7 @@ function draw() {
       //tint (255, 0);
 
       image(special, width / 2, height / 2)
-    //  square(width / 2, height / 2, 400 + rms * 200);
+      //  square(width / 2, height / 2, 400 + rms * 200);
 
       image(speakers, width / 2, height / 2);
       //image(chara1, width / 2, height / 2);
@@ -149,9 +150,9 @@ function draw() {
       break;
 
     case 3:
-    let rms = analyzer.getLevel();
-    fill(104,107,132);
-    stroke(0);
+      rms = analyzer.getLevel();
+      fill(104, 107, 132);
+      stroke(0);
 
       //image(m2, width / 2, height / 2);
 
@@ -161,11 +162,11 @@ function draw() {
 
 
       image(speakers, width / 2, height / 2);
-//tint(255,130);
-      ellipse(186,700, 200 + rms * 250);
-      ellipse(186,1333, 200 + rms * 250);
-      ellipse(1616,700, 200 + rms * 250);
-      ellipse(1616,1333, 200 + rms * 250);
+      //tint(255,130);
+      ellipse(186, 700, 100 + rms * 350);
+      ellipse(186, 1333, 100 + rms * 350);
+      ellipse(1616, 700, 100 + rms * 350);
+      ellipse(1616, 1333, 100 + rms * 350);
 
       image(chara2, width / 2, height / 2);
       image(dj, width / 2, height / 2);
@@ -250,7 +251,7 @@ function mouseReleased() {
     state++;
   }
 
-  if (state > 8){
+  if (state > 8) {
     state = 0;
   }
 }
