@@ -1,10 +1,9 @@
-
 let cars = [];
 let watermelon;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-watermelon = loadImage("assets/watermelon.png");
+  watermelon = loadImage("assets/watermelon.png");
   // Spawn an object
   // myCar = new Car() ;
 
@@ -32,7 +31,7 @@ class Car {
     this.pos = createVector(random(200), random(200));
     this.vel = createVector(random(5), random(5));
     this.cor = color(0, random(50, 100), random(190, 245), random(100));
-    this.size = random(90) ;
+    this.size = random(10);
   }
 
   // methods
@@ -40,8 +39,8 @@ class Car {
   display() {
     fill(this.cor);
     // rect(this.pos.x, this.pos.y, 75, 25);
-   textSize(this.size) ;
-   image(watermelon, this.pos.x, this.pos.y);
+    textSize(this.size);
+    image(watermelon, this.pos.x, this.pos.y);
     //text("RAIN", this.pos.x, this.pos.y);
   }
 
