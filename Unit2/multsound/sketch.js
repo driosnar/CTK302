@@ -97,10 +97,6 @@ function draw() {
 
       background('white');
 
-
-
-
-
       song3.play();
 
       state = 5;

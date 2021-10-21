@@ -177,7 +177,7 @@ function draw() {
     case 4:
       //song 3
       music.play();
-      state = 4
+      state = 5
       break;
 
     case 5:
