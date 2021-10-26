@@ -1,14 +1,17 @@
 let cars = [];
 let frogPos;
-let maxCars = 20;
+let maxCars = 5;
 let timer = 0;
 let state = 0;
 let score = 0;
+// let life = [];
+let life = 3;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1080, 720);
   imageMode(CENTER);
+  textAlign(CENTER);
 
   // Spawn many object
 
@@ -16,6 +19,8 @@ function setup() {
   for (let i = 0; i < maxCars; i++) {
     cars.push(new Car());
   }
+
+
 
   frogPos = createVector(width / 2, height - 80);
 }
@@ -27,11 +32,11 @@ function draw() {
     case 0:
       background('red');
       textSize(40);
+      fill(0);
       text("welcome", width / 2, height / 2)
       break;
 
-      if (frogPos.x > windowWidth) frogPos.x = windowWidth;
-      if (frogPos.x < 0) frogPos.x = 0;
+
       // if (frogPos.x > windowHeight) frogPos.x = windowHeight
       // if (frongPos.x <0) frogPos.x = 0;
 
@@ -39,21 +44,25 @@ function draw() {
       timer++;
       game();
 
-      if(frogPos.length ==0){
-
-
-        state =3
-
-      }
+      // if (frogPos.length == 0) {
+      //
+      //
+      //   state = 3
+      //
+      // }
 
       if (timer > 20 * 60) {
         timer = 0;
-        state = 3;
+        state = 2;
 
       }
-      if (score > 5) {
-        state = 2
-      }
+      // // if (life < 0) {
+      //   state = 3
+      // }
+
+      // if (life > 0) {
+      //   state = 3;
+      // }
 
       break;
 
@@ -71,7 +80,7 @@ function draw() {
       break;
   }
 
-//text(frogPosX + "," + frogPogY, 10, 1700);
+  //text(frogPosX + "," + frogPogY, 10, 1700);
 
 }
 
@@ -86,10 +95,12 @@ function mouseReleased() {
       break;
 
     case 2:
+      resetTheGame();
       state = 0
       break;
 
     case 3:
+      resetTheGame();
       state = 0;
       break;
   }
@@ -102,13 +113,19 @@ function game() {
     cars[i].display();
     cars[i].move();
 
-    if ((cars[i].pos.dist(frogPos)) < 50) {
+    if ((cars[i].pos.dist(frogPos)) < cars[i].size/2) {
       cars.splice(i, 1);
-      score++;
+      life--;
+      // score++;
     }
   }
-  if (cars.length == 0) {
-    state = 2;
+
+  //   if ((life[i].pos.dist(frogPos)) < 50) {
+  //     life.splice(i, -1);
+  // }
+
+  if (life <= 0) {
+    state = 3;
   }
 
 
@@ -116,9 +133,14 @@ function game() {
   fill("green");
   ellipse(frogPos.x, frogPos.y, 50, 50);
   checkForKeys();
+
+fill('white');
+  text (life, 950,80);
 }
 
 function resetTheGame() {
+  life = 3;
+  score = 0;
   timer = 0;
   cars = [];
   for (let i = 0; i < maxCars; i++) {
@@ -134,6 +156,8 @@ function resetTheGame() {
 function checkForKeys() {
   if (keyIsDown(LEFT_ARROW)) frogPos.x -= 10;
   if (keyIsDown(RIGHT_ARROW)) frogPos.x += 10;
+  if (frogPos.x > 1080) frogPos.x = 1080;
+  if (frogPos.x < 0) frogPos.x = 0;
   // if (keyIsDown(UP_ARROW)) frogPos.y -= 5;
   // if (keyIsDown(DOWN_ARROW)) frogPos.y += 5;
 }
@@ -142,7 +166,7 @@ function checkForKeys() {
 class Car {
   // constructor and attributes
   constructor() {
-    this.pos = createVector(200, 200);
+    this.pos = createVector(random(width), 200);
     this.vel = createVector(random(0, 0), random(10, 5));
     this.col = color(0, random(50, 100), random(100, 255), random(255));
     this.size = random(50, 80);
@@ -153,14 +177,34 @@ class Car {
   display() {
     fill(this.col);
     textSize(this.size);
-    text("HELLO", this.pos.x, this.pos.y);
+    ellipse(this.pos.x,this.pos.y,this.size,this.size);
+    //text("HELLO", this.pos.x, this.pos.y);
   }
 
   move() {
     this.pos.add(this.vel);
-    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x > width) this.pos.x = random(0,1080);
     if (this.pos.x < 0) this.pos.x = width;
-    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y > height){
+      this.pos.y = 0;
+    this.pos.x = random(0,1080)} 
     if (this.pos.y < 0) this.pos.y = height;
   }
 }
+
+// class Life {
+//   constructor() {
+//     this.pos = createVector(1000, 20);
+//     this.col = ('red');
+//     this.size = (15);
+//   }
+//
+//
+//   // methods
+//
+//   display() {
+//     fill(this.col);
+//     textSize(this.size);
+//     ellipse(1000,80, 100, 100);
+//   }
+// }
