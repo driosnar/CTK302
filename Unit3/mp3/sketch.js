@@ -44,7 +44,7 @@ function draw() {
   //    background('red');
       image(start, width / 2, height / 2)
       //textSize(40);
-      fill(0);
+    //  fill(0);
       //text("welcome", width / 2, height / 2)
       break;
 
@@ -150,6 +150,9 @@ function game() {
   checkForKeys();
 
   fill('white');
+
+  textSize(90);
+  //fill(156,32,53);
   text(life, 950, 80);
 }
 
