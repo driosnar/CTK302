@@ -6,12 +6,23 @@ let state = 0;
 let score = 0;
 // let life = [];
 let life = 3;
+let start;
+let backgrnd;
+let ship;
+let rock;
+let winner;
 
 
 function setup() {
   createCanvas(1080, 720);
   imageMode(CENTER);
   textAlign(CENTER);
+
+  start = loadImage("assets/start.png");
+  backgrnd = loadImage("assets/background.png");
+  ship = loadImage("assets/ship2.png");
+  rock = loadImage("assets/rock.png");
+  winner = loadImage("assets/winner.png");
 
   // Spawn many object
 
@@ -30,10 +41,11 @@ function draw() {
   switch (state) {
 
     case 0:
-      background('red');
-      textSize(40);
+  //    background('red');
+      image(start, width / 2, height / 2)
+      //textSize(40);
       fill(0);
-      text("welcome", width / 2, height / 2)
+      //text("welcome", width / 2, height / 2)
       break;
 
 
@@ -41,6 +53,7 @@ function draw() {
       // if (frongPos.x <0) frogPos.x = 0;
 
     case 1: //game
+      image(backgrnd, width / 2, height / 2);
       timer++;
       game();
 
@@ -67,16 +80,18 @@ function draw() {
       break;
 
     case 2: //win
-      background("green");
-      textSize(99);
-      fill('yellow');
-      text("winner", width / 2, height / 2);
+
+      image(winner, width / 2, height / 2);
+      // background("green");
+      // textSize(99);
+      // fill('yellow');
+      // text("winner", width / 2, height / 2);
       break;
 
     case 3: //lose
       background('black');
       textSize(28);
-      text("you lost", width / 2, height / 2);
+      text("WHAT HAPPENED!? \n \n Y.O.U: You happened, you were too lazy to drive the ship yourself", width / 2, height / 2);
       break;
   }
 
@@ -108,12 +123,12 @@ function mouseReleased() {
 
 
 function game() {
-  background('grey');
+  //background('grey');
   for (let i = 0; i < cars.length; i++) {
     cars[i].display();
     cars[i].move();
 
-    if ((cars[i].pos.dist(frogPos)) < cars[i].size/2) {
+    if ((cars[i].pos.dist(frogPos)) < cars[i].size / 2) {
       cars.splice(i, 1);
       life--;
       // score++;
@@ -131,11 +146,11 @@ function game() {
 
   // frog
   fill("green");
-  ellipse(frogPos.x, frogPos.y, 50, 50);
+  image(ship, frogPos.x, frogPos.y,100,100);
   checkForKeys();
 
-fill('white');
-  text (life, 950,80);
+  fill('white');
+  text(life, 950, 80);
 }
 
 function resetTheGame() {
@@ -175,19 +190,20 @@ class Car {
   // methods
 
   display() {
-    fill(this.col);
-    textSize(this.size);
-    ellipse(this.pos.x,this.pos.y,this.size,this.size);
+    //fill(this.col);
+    //textSize(this.size);
+    image(rock,this.pos.x, this.pos.y, this.size, this.size);
     //text("HELLO", this.pos.x, this.pos.y);
   }
 
   move() {
     this.pos.add(this.vel);
-    if (this.pos.x > width) this.pos.x = random(0,1080);
+    if (this.pos.x > width) this.pos.x = random(0, 1080);
     if (this.pos.x < 0) this.pos.x = width;
-    if (this.pos.y > height){
+    if (this.pos.y > height) {
       this.pos.y = 0;
-    this.pos.x = random(0,1080)} 
+      this.pos.x = random(0, 1080)
+    }
     if (this.pos.y < 0) this.pos.y = height;
   }
 }
