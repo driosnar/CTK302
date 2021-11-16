@@ -10,6 +10,9 @@ var yPosition = 0;
 var cars = [];
 var frogPos;
 
+let one;
+let two;
+//let three;
 
 function setup() {
 
@@ -20,6 +23,10 @@ function setup() {
   beta = 0;
   gamma = 0;
 
+
+one = loadImage("assets/ship2.png");
+two = loadImage("assets/rock.png");
+three = loadImage("assets/background.png ")
 
   // spawn a bunch of cars
   for (var i = 0; i < 40; i++) {
@@ -39,7 +46,7 @@ function setup() {
 function draw() {
 
   background('#c6f5ff'); // light blue
-
+image(three,width/2,height/2);
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
@@ -53,9 +60,9 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  // image(bunnyImage, 0, 0, 500, 500);
-  fill('green');
-  ellipse(0, 0, 80, 80);
+   image(one, 0, 0, 500, 500);
+//  fill('green');
+  //ellipse(0, 0, 80, 80);
   pop();
 
 
@@ -76,6 +83,8 @@ function draw() {
   fill('white');
   textSize(40);
   textAlign(CENTER);
+
+
   text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
 
@@ -144,11 +153,13 @@ function Car() {
   // methods
   this.display = function() {
 
+    image(two,this.pos.x, this.pos.y,100,100);
+
     // maybe use an image here instead!
-    fill(this.r, this.g, this.b, this.a);
-    ellipse(this.pos.x - 50, this.pos.y, 50, 50);
-    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+//    fill(this.r, this.g, this.b, this.a);
+  //  ellipse(this.pos.x - 50, this.pos.y, 50, 50);
+    //ellipse(this.pos.x + 50, this.pos.y, 50, 50);
+    //rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
 
   }
 
