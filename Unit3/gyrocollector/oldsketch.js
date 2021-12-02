@@ -11,7 +11,7 @@ let backgrnd;
 let ship;
 let rock;
 let winner;
-
+let space;
 
 function setup() {
   createCanvas(1080, 720);
@@ -23,6 +23,7 @@ function setup() {
   ship = loadImage("assets/ship2.png");
   rock = loadImage("assets/rock.png");
   winner = loadImage("assets/winner.png");
+  space = loadImage("assets/space.webm");
 
   // Spawn many object
 
@@ -53,7 +54,8 @@ function draw() {
       // if (frongPos.x <0) frogPos.x = 0;
 
     case 1: //game
-      image(backgrnd, width / 2, height / 2);
+      //image(backgrnd, width / 2, height / 2);
+      image(space,width/2,height/2);
       timer++;
       game();
 
