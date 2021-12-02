@@ -5,6 +5,7 @@ var weatherID = 0; // returned in the JSON weather element
 var myState = 0;
 var x = 0;
 var windspeed = 0;
+let fl;
 
 // var temp = 0;
 // var humid = 0;
@@ -13,6 +14,9 @@ var windspeed = 0;
 
 function setup() {
   createCanvas(400, 400);
+  fl  = loadImage("assets/florida.png");
+
+  imageMode(CENTER);
 
   // HERE is the call to get the weather.
 
@@ -51,6 +55,7 @@ function draw() {
     case 1:
 
       background(200);
+      image(fl, width/2-170,height/2);
       fill("black");
       text("What is the weather in " + weather.name + "?", 20, 20);
       text("bruh its like windspeed is " + windspeed, 20, 40);

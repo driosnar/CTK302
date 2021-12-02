@@ -12,11 +12,15 @@ var frogPos;
 
 let one;
 let two;
+let four;
+let space;
+let vid;
+let better;
 //let three;
 
 function setup() {
 
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(displayWidth,displayHeight);
 
   // initialize accelerometer variables
   alpha = 0;
@@ -24,9 +28,18 @@ function setup() {
   gamma = 0;
 
 
-one = loadImage("assets/ship2.png");
-two = loadImage("assets/rock.png");
-three = loadImage("assets/background.png ")
+  one = loadImage("assets/ship2.png");
+  two = loadImage("assets/rock.png");
+  three = loadImage("assets/background.png ");
+  four = loadImage("assets/space.jpg");
+  //space = loadImage("assets/video.mp4");
+
+  vid = createVideo(
+  ['assets/4K.mp4'],
+  vidLoad
+);
+vid.hide();
+
 
   // spawn a bunch of cars
   for (var i = 0; i < 40; i++) {
@@ -34,34 +47,42 @@ three = loadImage("assets/background.png ")
   }
 
   // initialize the frog's position
-  frogPos = createVector(width / 2, height - 80);
+  frogPos = createVector(width / 2, height / 2);
 
   // load any images you need
   //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
+  angleMode(DEGREES);
   noStroke();
 }
 
 function draw() {
 
-  background('#c6f5ff'); // light blue
-image(three,width/2,height/2);
+  //background('#c6f5ff'); // light blue
+
+  image(vid, width/2,height/2,displayWidth,displayHeight);
+
+  //  image(space,width/2,height/2);
+  //image(three,width/2,height/2);
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
   xPosition = map(gamma, -18, 18, 0, width);
-  yPosition = map(beta, 25, 45, 0, height);
+  yPosition = map(beta, 40, 90, 0, height);
 
 
   // move the frog around the screen
   push(); // before you use translate, rotate, or scale commands, push and then pop after
-  translate(xPosition, yPosition); // move everything over by x, y
-  //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
+  translate(xPosition, yPosition); // move everything over by x, y
+    // using alpha in here so it doesn't feel bad
+// rotate(  );
+let a = atan2(xPosition * 50,yPosition * 50);
+  rotate(xPosition);
   // draw the FROG
-   image(one, 0, 0, 500, 500);
-//  fill('green');
+  image(one, 0, 0, 500, 500);
+  //  fill('green');
   //ellipse(0, 0, 80, 80);
   pop();
 
@@ -90,20 +111,20 @@ image(three,width/2,height/2);
 
   // Debugging information -- take this out when you're ready for production!
   // Just a bunch of text commands to display data coming in from addEventListeners
-  textAlign(LEFT);
-  textSize(20);
-  fill('black');
-  text("orientation data:", 25, 25);
-  textSize(15);
-  text("alpha: " + alpha, 25, 50);
-  text("beta: " + beta, 25, 70);
-  text("gamma: " + gamma, 25, 90);
-  textSize(20);
-  text("acceleration data:", 25, 125);
-  textSize(15);
-  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y, 25, 170);
-  text("z = " + z, 25, 190);
+  //  textAlign(LEFT);
+  //  textSize(20);
+    fill('white');
+  //  text("orientation data:", 25, 25);
+    textSize(15);
+    text("alpha: " + alpha, 25, 50);
+  //  text("beta: " + beta, 25, 70);
+  //  text("gamma: " + gamma, 25, 90);
+  //  textSize(20);
+  //  text("acceleration data:", 25, 125);
+  //textSize(15);
+  //text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  //text("y = " + y, 25, 170);
+  //text("z = " + z, 25, 190);
 
 
 }
@@ -142,22 +163,23 @@ window.addEventListener('devicemotion', function(e) {
 // car class!!
 function Car() {
   // attributes
-  this.pos = createVector(100, 100);
-  this.vel = createVector(random(-5, 5), random(-5, 5));
+  this.pos = createVector(height / 2, width / 2);
+  this.vel = createVector(random(-15, 15), random(-15, 15));
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
-  this.a = random(255);  // alpha opacity value for fill!
+  this.a = random(255); // alpha opacity value for fill!
+  this.size = random(100,200);
 
 
   // methods
   this.display = function() {
 
-    image(two,this.pos.x, this.pos.y,100,100);
+    image(two, this.pos.x, this.pos.y, this.size,this.size);
 
     // maybe use an image here instead!
-//    fill(this.r, this.g, this.b, this.a);
-  //  ellipse(this.pos.x - 50, this.pos.y, 50, 50);
+    //    fill(this.r, this.g, this.b, this.a);
+    //  ellipse(this.pos.x - 50, this.pos.y, 50, 50);
     //ellipse(this.pos.x + 50, this.pos.y, 50, 50);
     //rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
 
@@ -173,4 +195,11 @@ function Car() {
 
   }
 
+
+
+}
+
+function vidLoad() {
+  vid.loop();
+  vid.volume(0);
 }

@@ -6,6 +6,7 @@ let bunnyImage;
 let xPosition = 0;
 let yPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
+let pokeball;
 
 
 function setup() {
@@ -15,6 +16,8 @@ function setup() {
 
 
   bunnyImage = loadImage("assets/bunny.png");
+  pokeball = loadImage("assets/pokeball.png");
+  battle = loadImage("assets/battlefield.jpg")
   imageMode(CENTER);
   rectMode(CENTER);
 
@@ -23,6 +26,7 @@ function setup() {
 function draw() {
 
   background('#c6f5ff'); // light blue
+  image(battle,width/2, height/2, windowWidth, windowHeight);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -34,35 +38,36 @@ function draw() {
 
   translate(xPosition, yPosition); // move everything over by x, y
 
-  rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
-
-  image(bunnyImage, 0, 0, 500, 500);
+  //rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
+  let a = atan2(xPosition);
+    rotate(yPosition);
+  image(pokeball, 0, 0, 500, 500);
   // rect(0, 0, 100, 100) ;
   pop();
 
 
   // Text commands that display debugging data
-  textAlign(LEFT);
-  textSize(20);
-  fill('black');
-  text("orientation data:", 25, 25);
-  textSize(15);
-  text("alpha: " + alpha, 25, 50);
-  text("beta: " + beta, 25, 70);
-  text("gamma: " + gamma, 25, 90);
-  textSize(20);
-  text("acceleration data:", 25, 125);
-  textSize(15);
-  text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y.toFixed(2), 25, 170);
-  text("z = " + z.toFixed(4), 25, 190);
+  // textAlign(LEFT);
+  // textSize(20);
+  // fill('black');
+  // text("orientation data:", 25, 25);
+  // textSize(15);
+  // text("alpha: " + alpha, 25, 50);
+  // text("beta: " + beta, 25, 70);
+  // text("gamma: " + gamma, 25, 90);
+  // textSize(20);
+  // text("acceleration data:", 25, 125);
+  // textSize(15);
+  // text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
+  // text("y = " + y.toFixed(2), 25, 170);
+  // text("z = " + z.toFixed(4), 25, 190);
 
   // Text that makes CTK type in the background
-  fill('white');
-  noStroke();
-  textSize(300);
-  textAlign(CENTER);
-  text("ctk", width / 2, height / 2);
+  // fill('white');
+  // noStroke();
+  // textSize(300);
+  // textAlign(CENTER);
+  // text("ctk", width / 2, height / 2);
 
 }
 
