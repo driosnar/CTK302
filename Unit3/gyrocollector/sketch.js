@@ -42,7 +42,7 @@ vid.hide();
 
 
   // spawn a bunch of cars
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 10; i++) {
     cars.push(new Car());
   }
 
