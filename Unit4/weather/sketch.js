@@ -6,6 +6,7 @@ var myState = 0;
 var x = 0;
 var windspeed = 0;
 let fl;
+let cloud;
 
 // var temp = 0;
 // var humid = 0;
@@ -15,6 +16,7 @@ let fl;
 function setup() {
   createCanvas(400, 400);
   fl  = loadImage("assets/florida.png");
+  cloud = loadImage("assets/cloud.png");
 
   imageMode(CENTER);
 
@@ -72,7 +74,11 @@ function draw() {
       // cloud
       fill("white");
       noStroke();
-      ellipse(x, 300, 200, 100);
+      image(cloud, x, 130, 200, 100);
+      image(cloud, x+1, 210, 200, 100);
+      image(cloud, x+random(1,50), 200, 100, 100);
+      image(cloud, x, 150, 150, 100);
+      image(cloud, x, 100, 175, 100);
 
       // move the cloud's x position
       x = x + windspeed;
