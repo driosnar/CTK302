@@ -81,7 +81,7 @@ function draw() {
 let a = atan2(xPosition * 50,yPosition * 50);
   rotate(xPosition);
   // draw the FROG
-  image(one, 0, 0, 500, 500);
+  image(one, 0, 0, 250, 250);
   //  fill('green');
   //ellipse(0, 0, 80, 80);
   pop();
