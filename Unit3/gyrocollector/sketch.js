@@ -16,6 +16,7 @@ let four;
 let space;
 let vid;
 let better;
+let timer = 0;
 //let three;
 
 function setup() {
@@ -106,7 +107,7 @@ let a = atan2(xPosition * 50,yPosition * 50);
   textAlign(CENTER);
 
 
-  text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+  text("Dodge the asteroids! \n Y.O.U: your controls are wack \n shut up Y.O.U!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
 
   // Debugging information -- take this out when you're ready for production!
@@ -125,8 +126,14 @@ let a = atan2(xPosition * 50,yPosition * 50);
   //text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
   //text("y = " + y, 25, 170);
   //text("z = " + z, 25, 190);
+timer++;
+if (timer >= 1*20){
+  timer = 0;
+}
 
-
+if (timer = 0 ){
+  text.spice;
+}
 }
 
 function deviceShaken() {
