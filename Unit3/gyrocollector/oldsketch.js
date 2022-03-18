@@ -42,10 +42,10 @@ function draw() {
   switch (state) {
 
     case 0:
-  //    background('red');
+      //    background('red');
       image(start, width / 2, height / 2)
       //textSize(40);
-    //  fill(0);
+      //  fill(0);
       //text("welcome", width / 2, height / 2)
       break;
 
@@ -55,7 +55,7 @@ function draw() {
 
     case 1: //game
       //image(backgrnd, width / 2, height / 2);
-      image(space,width/2,height/2);
+      image(space, width / 2, height / 2);
       timer++;
       game();
 
@@ -148,7 +148,7 @@ function game() {
 
   // frog
   fill("green");
-  image(ship, frogPos.x, frogPos.y,100,100);
+  image(ship, frogPos.x, frogPos.y, 100, 100);
   checkForKeys();
 
   fill('white');
@@ -197,7 +197,7 @@ class Car {
   display() {
     //fill(this.col);
     //textSize(this.size);
-    image(rock,this.pos.x, this.pos.y, this.size, this.size);
+    image(rock, this.pos.x, this.pos.y, this.size, this.size);
     //text("HELLO", this.pos.x, this.pos.y);
   }
 
