@@ -24,7 +24,7 @@ function setup() {
   rock = loadImage("assets/rock.png");
   winner = loadImage("assets/winner.png");
 
-  // Spawn many object
+  // Spawn many objects
 
 
   for (let i = 0; i < maxCars; i++) {
