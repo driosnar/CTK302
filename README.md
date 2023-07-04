@@ -1,1 +1,1 @@
-# CTK302-Template
+# CTK302 class
